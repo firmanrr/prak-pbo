@@ -1,0 +1,81 @@
+package laporan7;
+
+import java.util.Scanner;
+interface bangunDatar{
+    public double luas(int jariJari);
+    public double keliling(int jariJari);
+}
+interface bangunRuang{
+    public double volume(int jariJari,int tinggi);
+}
+class Tabung implements bangunRuang{
+
+    @Override
+    public double volume(int jariJari,int tinggi) {
+        double volume=Math.PI * jariJari * jariJari * tinggi;
+        return volume;
+    }
+}
+class Kerucut implements bangunRuang{
+    @Override
+    public double volume(int jariJari,int tinggi) {
+        double volume=(Math.PI * jariJari * jariJari * tinggi)/3;
+        return volume;
+    }
+
+}
+class Lingkaran implements bangunDatar{
+    @Override
+    public double luas(int jariJari) {
+        double luas = Math.PI * jariJari * jariJari;
+        return luas;
+    }
+
+    @Override
+    public double keliling(int jariJari) {
+        double keliling= 2 * Math.PI * jariJari;
+        return keliling;
+    }
+}
+public class nomor2{
+    public static void main(String []args){
+        Scanner input=new Scanner(System.in);
+        int pilih,jariJari,tinggi;
+        System.out.print("program perhitungan:\n1.bangun datar\n2.bangun ruang\npilih:");
+        pilih=input.nextInt();
+        if(pilih==1){
+            Lingkaran lingkaran=new Lingkaran();
+            System.out.print("hanya tersedia lingkaran!!!\nmasukkan jari-jari: ");
+            jariJari=input.nextInt();
+            System.out.print("\n1.keliling\n2.luas\npilih:");
+            pilih=input.nextInt();
+            if(pilih==1){
+                System.out.print("keliling:"+
+                        lingkaran.keliling(jariJari));
+            }else if(pilih==2){
+                System.out.print("luas:"+
+                        lingkaran.luas(jariJari));
+            }else{
+                System.out.println("tidak ada dalam pilihan");
+            }
+        }else if(pilih==2){
+            Tabung tabung=new Tabung();
+            Kerucut krucut=new Kerucut();
+            System.out.print("masukkan nilai jarijari:");
+            jariJari=input.nextInt();
+            System.out.print("masukkan nilai tinggi:");
+            tinggi=input.nextInt();
+            System.out.print("masukan pilihan:\n1.tabung\n2.Krucut\nhitung volume:");
+            pilih=input.nextInt();
+            System.out.print("volume:"+
+                    switch(pilih){
+                        case 1->
+                                tabung.volume(jariJari, tinggi);
+                        case 2->
+                                krucut.volume(jariJari, tinggi);
+                        default -> throw new IllegalArgumentException("tidak ada dalam pilihan" );
+                    }
+            );
+        }
+    }
+}

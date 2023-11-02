@@ -1,0 +1,47 @@
+class LoopingFor {
+    public void looping() {
+        System.out.println("LOOPING FOR");
+        int i, j, tinggi_segitiga = 5;
+        for (i = 0; i < tinggi_segitiga; i++) {
+            for (j = 1; j <= tinggi_segitiga - i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+class LoopingWhile{
+    protected void looping() {
+        System.out.println("LOOPING WHILE");
+        int tinggi = 5;
+
+        int baris = tinggi;
+        while (baris >= 1) {
+            int kolom = 1;
+            while (kolom <= baris) {
+                System.out.print("* ");
+                kolom++;
+            }
+            System.out.println();
+            baris--;
+        }
+    }
+}
+
+class LoopingDoWhile {
+    void looping() {
+        System.out.println("LOOPING DO-WHILE");
+        int tinggi = 5; // Jumlah baris segitiga
+
+        int baris = tinggi;
+        do {
+            int kolom = 1;
+            do {
+                System.out.print("* ");
+                kolom++;
+            } while (kolom <= baris);
+            System.out.println();
+            baris--;
+        } while (baris >= 1);
+    }
+}

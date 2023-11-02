@@ -1,0 +1,29 @@
+polymorphism = banyak bentuk (bisa buat banyak method dengan bentuk berbeda)
+
+overloading berasal dari method yang sama (method yang sama tapi berbeda parameter)
+fungsi keyword static (tidak usah buat method,langsung panggil nama methodnya, 
+baik atribut maupun method tanpa membuat objectnya dahulu)
+
+override
+syarat = harus sama nama dan parameter sesuai dengan classnya
+
+
+abstract
+tidak bisa diintansiasi (kelas bayangan atau template)
+method abstract belum memiliki isi atau tanpa body (jadi harus di override)
+tambahkan keyword abstract sebelum class
+keyword extends
+apa yang dimiliki class utama dimiliki oleh kelas lain
+
+interface
+sekumpulan method abstract
+kontrak interaksi dengan dunia luar 
+
+interface dikembangkan dengan key implements (bisa lebih satu interface)
+class dikembangkan dengan key extends
+
+class interface wajib override
+class abstract tidak
+
+final
+class/atribut/method tidak dapat diubah atau modifikasi 

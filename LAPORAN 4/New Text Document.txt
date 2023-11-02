@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+
+        int pilih;
+        System.out.println("PILIH PROGRAM");
+        System.out.println("1. Looping For");
+        System.out.println("2. Looping While");
+        System.out.println("3. Looping Do While");
+        System.out.println("Masukkan pilihan");
+        pilih = input.nextInt();
+
+
+        switch (pilih){
+            case 1:
+                LoopingFor loopingfor = new LoopingFor();
+                loopingfor.looping();
+                break;
+            case 2:
+                LoopingWhile loopingwhile = new LoopingWhile();
+                loopingwhile.looping();
+                break;
+            case 3:
+                LoopingDoWhile loopingdowhile = new LoopingDoWhile();
+                loopingdowhile.looping();
+                break;
+            default:
+                System.out.println("Pilihan tidak ada");
+        }
+
+    }
+}

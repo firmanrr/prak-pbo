@@ -1,0 +1,101 @@
+package laporan7;
+
+import java.util.Scanner;
+interface kendaraan {
+    public void jmlRoda();
+}
+abstract class mobil implements kendaraan {
+    public abstract void warna(String a);
+
+    String merk;
+    String bahanBakar;
+    String warna;
+    int a;
+
+    public void inputMobil(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan merk mobil:");
+        merk =input.nextLine();
+        System.out.print("Masukkan bahan bakar:");
+        bahanBakar =input.nextLine();
+        System.out.print("Masukkan warna:");
+        warna=input.nextLine();
+        System.out.print("Masukkan Jumlah roda: ");
+        a= input.nextInt();
+    }
+
+
+}
+abstract class motor implements kendaraan {
+
+    abstract void setBahanBakar();
+    String merk, bahanBakar;int a;
+    public void inputMotor(){
+        Scanner input=new Scanner(System.in);
+        System.out.print("Masukkan merk laporan7.motor:");
+        merk =input.nextLine();
+        System.out.print("Masukkan jenis bahan bakar:");
+        bahanBakar =input.nextLine();
+        System.out.print("Masukkan jumlah roda: ");a=input.nextInt();
+
+    }
+
+    public void jmlRoda(){
+        System.out.println("Jumlah roda: "+a);
+    }
+
+}
+ class apanja extends mobil {
+    @Override
+    public void warna(String a) {
+        System.out.println("Warna mobil: "+a);
+    }
+    public void detailMobil(){
+        System.out.println("\n\ndetail:\nMerk:"+ merk);
+        warna(warna);
+        jenisBahanBakar();
+        jmlRoda();
+    }
+    public void jenisBahanBakar(){
+        System.out.println("jenis bahan bakar: "+bahanBakar);
+    }
+     @Override
+     public void jmlRoda() {
+         System.out.println("jumlah roda: "+a);
+     }
+ }
+
+class bebek extends motor {
+
+
+    public void detailMotor(){
+
+        System.out.println("\nDETAIL :\nMerk laporan7.motor: "+ merk);
+        setBahanBakar();jmlRoda();
+
+    }
+    @Override
+    void setBahanBakar() {
+        System.out.println("jenis bahan bakar: "+bahanBakar);
+    }
+}
+public class nomor1 {
+
+    public static void main(String []args){
+        Scanner inp=new Scanner(System.in);
+        bebek Motor=new bebek();
+        apanja Mobil=new apanja();
+        int pilih;
+        System.out.print("Kendaraan :\n1.Motor\n2.Mobil\nMasukkan pilihan: ");
+        pilih=inp.nextInt();
+        if (pilih==1){
+            Motor.inputMotor();
+            Motor.detailMotor();
+        }else if(pilih==2){
+            Mobil.inputMobil();
+            Mobil.detailMobil();
+        }else{
+            System.out.println("Tidak ada dalam menu");
+        }
+    }
+}

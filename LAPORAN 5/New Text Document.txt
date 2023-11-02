@@ -1,0 +1,66 @@
+// Kelas Parent (Fakultas)
+class Fakultas {
+    private String namaFakultas;
+    private String jurusan;
+
+    public Fakultas(String namaFakultas, String jurusan) {
+        this.namaFakultas = namaFakultas;
+        this.jurusan = jurusan;
+    }
+
+    public void informasiFakultas() {
+        System.out.println("Nama Fakultas: " + namaFakultas);
+        System.out.println("Jurusan: " + jurusan);
+    }
+}
+
+// Kelas Child (Mahasiswa)
+class Mahasiswa extends Fakultas {
+    private String nama;
+    private int nim;
+
+    public Mahasiswa(String nama, int nim, String namaFakultas, String jurusan) {
+        super(namaFakultas, jurusan);
+        this.nama = nama;
+        this.nim = nim;
+    }
+
+    public void informasiMahasiswa() {
+        System.out.println("Nama: " + nama);
+        System.out.println("NIM: " + nim);
+        informasiFakultas(); // Memanggil metode dari kelas Fakultas
+    }
+}
+
+// Kelas Child (Dosen)
+class Dosen extends Fakultas {
+    private String nama;
+    private String matkul;
+
+    public Dosen(String nama, String matkul, String namaFakultas, String jurusan) {
+        super(namaFakultas, jurusan);
+        this.nama = nama;
+        this.matkul = matkul;
+    }
+
+    public void informasiDosen() {
+        System.out.println("Nama: " + nama);
+        System.out.println("Matkul: " + matkul);
+        informasiFakultas(); // Memanggil metode dari kelas Fakultas
+    }
+}
+
+// Kelas Utama (Main)
+public class Main {
+    public static void main(String[] args) {
+        Mahasiswa mahasiswa = new Mahasiswa("Raizsa Zahra", 12345, "Fakultas Sains dan Teknologi", "Sistem Informasi");
+        Dosen dosen = new Dosen("Akbar", "Dosen Pengauditan", "Fakultas Ekonomi dan Bisnis", "Akuntansi");
+
+        System.out.println("=====Informasi Mahasiswa=====");
+        mahasiswa.informasiMahasiswa();
+        System.out.println();
+
+        System.out.println("=====Informasi Dosen=====");
+        dosen.informasiDosen();
+    }
+}

@@ -1,0 +1,43 @@
+class Hewan {
+    public void bersuara() {
+        System.out.println("Hewan membuat suara.");
+    }
+}
+
+class Kucing extends Hewan {
+    @Override
+    public void bersuara() {
+        System.out.println("Meow!");
+    }
+
+    public void garuk() {
+        System.out.println("Kucing menggaruk.");
+    }
+}
+
+class Anjing extends Hewan {
+    @Override
+    public void bersuara() {
+        System.out.println("Gukkkkkk");
+    }
+
+    public void gerak() {
+        System.out.println("Anjing menggoyangkan ekornya.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Hewan hewan1 = new Kucing();
+        Hewan hewan2 = new Anjing();
+
+        hewan1.bersuara(); // Memanggil metode overridden di kelas Kucing
+        hewan2.bersuara(); // Memanggil metode overridden di kelas Anjing
+
+        Kucing kucing = (Kucing) hewan1;
+        kucing.garuk(); // Memanggil metode spesifik di kelas Cat
+
+        Anjing anjing = (Anjing) hewan2;
+        Anjing.gerak(); // Memanggil metode spesifik di kelas Dog
+    }
+}

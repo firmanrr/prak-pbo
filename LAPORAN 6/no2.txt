@@ -1,0 +1,31 @@
+class Calculator {
+    public void calculate(int a, int b) {
+        int sum = a + b;
+        System.out.println("Penjumlahan int: " + sum);
+
+        int difference = a - b;
+        System.out.println("Pengurangan int: " + difference);
+    }
+
+    public void calculate(float a, float b) {
+        float multiplication = a * b;
+        System.out.println("Perkalian float: " + multiplication);
+
+        float division = a / b;
+        System.out.println("Pembagian float: " + division);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+
+        int intOperand1 = 5;
+        int intOperand2 = 3;
+        calculator.calculate(intOperand1, intOperand2);
+
+        float floatOperand1 = 8.5f;
+        float floatOperand2 = 2.5f;
+        calculator.calculate(floatOperand1, floatOperand2);
+    }
+}
